@@ -2,7 +2,7 @@
 
 ## About
 
-This coding challenge for Trunk Club Engineering will utilize my abilities as a Front End Developer. The challenge is to create a minimally interfaced soundcloud player. 
+This coding challenge for Trunk Club Engineering will utilize my abilities as a UI Engineer. The challenge is to create a minimally interfaced soundcloud player. 
 
 ## Tooling
 
