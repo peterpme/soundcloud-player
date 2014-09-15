@@ -11,6 +11,7 @@ I will be utilizing the following:
 - [Soundcloud API](https://developers.soundcloud.com/docs/api)
 - [AngularJS](https://angularjs.org/)
 - [SCSS](http://sass-lang.com/)
+- [Heroku](http://heroku.com)
 
 
 ## Thoughts & Setup
