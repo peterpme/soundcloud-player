@@ -23,3 +23,5 @@ I will be utilizing the following:
 I do not have much experience with Coffeescript, but I understand Trunk Club utilizes it for all of their projects, so I will challenge myself by writing this in Coffeescript as well.
 
 Timed Challenge of `4 hours`
+
+- Authenticating and adding songs to a playlist.
