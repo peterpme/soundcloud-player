@@ -15,7 +15,7 @@ router.use(function (err, req, res, next) {
 });
 
 router.get('/', function (req, res) {
-  res.resnder ('pages/index');
+  res.render ('pages/index');
 });
 
 app.use('/', router);
