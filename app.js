@@ -7,7 +7,7 @@ var app = express();
 app.set('port', port);
 app.set('view engine', 'ejs');
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/app'));
 
 router.use(function (err, req, res, next) {
   console.log('%s %s %s', req.method, req.url, req.path);
