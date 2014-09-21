@@ -3,10 +3,10 @@
 	<h1>Search A Category, Stream Your Music</h1>
 	<form name="searchForm" ng-submit="submitForm()" ng-class="{'submit-attempt' : submitted}">
 		<div clas="sc-player__search">
-			<input type="text" class="input" placeholder="Search A Category" ng-model="songCategory">
+			<input type="text" class="input" placeholder="Search A Category" ng-model="category">
 			<button type="submit" class="btn"><i class="fa fa-play-circle"></i> Play Music</button>
 
-			<p ng-show="disableForm && formSuccess === false">
+			<p ng-show="formSubmitted === true && formSuccess === false">
 				Loading: <i class="fa fa-spin fa-circle-o-notch fa-3x"></i>
 			</p>
 
