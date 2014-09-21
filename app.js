@@ -1,4 +1,4 @@
-var express = require('expres');
+var express = require('express');
 var connect = require('connect');
 var port = process.env.PORT || 4242;
 var router = express.Router();
