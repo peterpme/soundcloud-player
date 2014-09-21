@@ -1,5 +1,22 @@
 <% include ../partials/head %>
-Hello
-<div class="sc-player" data-sc-player>
+<div class="sc-player" ng-controller="playerController">
+	<h1>Search A Category, Stream Your Music</h1>
+	<form name="searchForm" ng-submit="submitForm()" ng-class="{'submit-attempt' : submitted}">
+		<div clas="sc-player__search">
+			<input type="text" class="input" placeholder="Search A Category" ng-model="songCategory">
+			<button type="submit" class="btn"><i class="fa fa-play-circle"></i> Play Music</button>
+
+			<p ng-show="disableForm && formSuccess === false">
+				Loading: <i class="fa fa-spin fa-circle-o-notch fa-3x"></i>
+			</p>
+
+			<div class="sc-player__results" ng-show="formSuccess">
+				<h2>Your Playlist:</h2>
+				<ul class="list-unstyled">
+					<li ng-repeat="track in tracklist"></li>
+				</ul>
+			</div>
+		</div>
+	</form>
 </div>
 <% include ../partials/foot %>
