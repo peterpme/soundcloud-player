@@ -25,3 +25,11 @@ I do not have much experience with Coffeescript, but I understand Trunk Club uti
 Timed Challenge of `4 hours`
 
 - Authenticating and adding songs to a playlist.
+
+## Issues:
+- There are tracks that will not play, because of some sort of Soundcloud licensing.
+
+
+## Improvements:
+- I need to decouple the callback under querySoundcloud and create separate functions out of them.
+- Ideally, I shouldn't be using JSONP. I should let the Node server handle that request, and I will request the data from the server instead.
