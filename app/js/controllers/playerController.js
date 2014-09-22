@@ -14,7 +14,7 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 
 		SC.initialize({
 			client_id: $scope.clientId
-		});
+		});†
 
 	})();
 
