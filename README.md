@@ -33,3 +33,4 @@ Timed Challenge of `4 hours`
 ## Improvements:
 - I need to decouple the callback under querySoundcloud and create separate functions out of them.
 - Ideally, I shouldn't be using JSONP. I should let the Node server handle that request, and I will request the data from the server instead.
+- Better system for changing songs.
