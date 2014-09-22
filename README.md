@@ -31,12 +31,17 @@ Timed Challenge of `4 hours`
 
 
 ## Improvements:
-- Authenticating and adding songs to a playlist.
-- I need to decouple the callback under querySoundcloud and create separate functions out of them.
-- Ideally, I shouldn't be using JSONP. I should let the Node server handle that request, and I will request the data from the server instead.
-- Better system for changing songs.
-- Reload player and append NEW query when searching for a new playlist
-- Still need coffeescript
+- Decopling callback inside querySoundcloud and creating a separate function
+- Cleaning up code inside addTrackToPlayer / updateIndex functions
+- Add complete commenting
+- Getting rid of JSONP, letting Node handle that request, and requesting data from the Node server instead
+- Better approach for changing songs (Looking into HTML5 Audio API)
+- Figuring out why "Deep House" is a broken query
+- Coffescript all the things
+- Better styling
+
+## Future Thoughts
+- Adding authentication and creating playlists based on favorite tracks (and saving those playlists to your account)
 
 ## Heroku URL:
 - [scplayer.herokuapp.com](http://scplayer.herokuapp.com)
