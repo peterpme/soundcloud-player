@@ -35,3 +35,7 @@ Timed Challenge of `4 hours`
 - I need to decouple the callback under querySoundcloud and create separate functions out of them.
 - Ideally, I shouldn't be using JSONP. I should let the Node server handle that request, and I will request the data from the server instead.
 - Better system for changing songs.
+- Reload player and append NEW query when searching for a new playlist
+
+## Heroku URL:
+- [scplayer.herokuapp.com](http://scplayer.herokuapp.com)
