@@ -1,0 +1,9 @@
+{
+  "name": "soundcloud Player",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.2.25",
+    "angular-logger": "~1.0.0",
+    "font-awesome": "~4.2.0"
+  }
+}
