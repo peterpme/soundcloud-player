@@ -16,10 +16,6 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 			client_id: $scope.clientId
 		});
 
-		SC.stream("/tracks/293", function(sound){
-			sound.play();
-		});
-
 	})();
 
 	$scope.submitForm = function () {
@@ -42,19 +38,17 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 					uri: track.uri + '/stream?client_id=' + $scope.clientId
 				})
 			});
+			$scope.addTrackToPlayer();
 
-			$log.info($scope.trackList);
 		});
-
-		$scope.addTrackToPlayer();
 	};
 
 	$scope.addTrackToPlayer = function () {
-		var audio = $scope.trackList;
-		console.log(audio);
+		var trackUri = $scope.trackList[0].uri;
 		var audioBox = document.getElementsByTagName('audio');
 
-		audioBox[0].setAttribute('src', audio);
+		audioBox[0].setAttribute('src', trackUri);
+		audioBox[0].play();
 	};
 
 }]);
