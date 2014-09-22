@@ -24,18 +24,19 @@ I do not have much experience with Coffeescript, but I understand Trunk Club uti
 
 Timed Challenge of `4 hours`
 
-- Authenticating and adding songs to a playlist.
 
 ## Issues:
-- There are tracks that will not play, because of some sort of Soundcloud licensing.
+- There are tracks that will not play, because of some sort of Soundcloud licensing. **If there's a track error, audio element will go to next song**
 - For some reason, you can't query "deep house", but "hip hop", "house music", "punk rock" all seem to work..
 
 
 ## Improvements:
+- Authenticating and adding songs to a playlist.
 - I need to decouple the callback under querySoundcloud and create separate functions out of them.
 - Ideally, I shouldn't be using JSONP. I should let the Node server handle that request, and I will request the data from the server instead.
 - Better system for changing songs.
 - Reload player and append NEW query when searching for a new playlist
+- Still need coffeescript
 
 ## Heroku URL:
 - [scplayer.herokuapp.com](http://scplayer.herokuapp.com)
