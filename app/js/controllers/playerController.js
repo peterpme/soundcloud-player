@@ -28,16 +28,6 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 		$scope.querySoundcloud();
 	};
 
-	$scope.lockForm = function () {
-		$scope.disableForm = true;
-		angular.element('input, button').attr('disabled', 'disabled');
-	}
-
-	$scope.unlockForm = function () {
-		$scope.disableForm = false;
-		angular.element('input, button').removeAttr('disabled');
-	}
-
 	$scope.querySoundcloud = function () {
 
 		$http.jsonp($scope.url + $scope.encodedString + '&client_id=' + $scope.clientId + '&callback=JSON_CALLBACK')
