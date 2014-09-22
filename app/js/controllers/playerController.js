@@ -20,12 +20,16 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 	})();
 
 	$scope.submitForm = function () {
+		$log.info('submitted Form');
 		$scope.formSubmitted = true;
 		$scope.encodedString = encodeURI($scope.category);
+
 		$scope.querySoundcloud();
 	};
 
 	$scope.querySoundcloud = function () {
+
+		$log.info('queried');
 
 		$http.jsonp($scope.url + $scope.encodedString + '&client_id=' + $scope.clientId + '&callback=JSON_CALLBACK')
 		.success(function (data) {
@@ -34,24 +38,27 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 			$scope.data = data;
 
 			$scope.data.forEach (function (track) {
-				$scope.trackList.push({
+				var uri = track.uri + '/stream?client_id=' + $scope.clientId;
+
+				$scope.trackList.unshift({
 					title: track.title,
-					uri: track.uri + '/stream?client_id=' + $scope.clientId
-				})
+					uri: uri
+				});
 			});
+
 			$scope.addTrackToPlayer();
 
 		});
 	};
 
 	$scope.addTrackToPlayer = function () {
-		var audioPlayer = document.getElementsByTagName('audio');
-		audioPlayer[0].setAttribute('src', $scope.trackList[$scope.currentIndex].uri);
-		audioPlayer[0].play();
+		var audioPlayer = document.getElementsByTagName('audio')[0];
+		audioPlayer.setAttribute('src', $scope.trackList[$scope.currentIndex].uri);
+		audioPlayer.play();
 
-		audioPlayer[0].addEventListener('error', function (e) {
-			audioPlayer[0].setAttribute('src', $scope.trackList[++$scope.currentIndex].uri);
-			audioPlayer[0].play();
+		audioPlayer.addEventListener('error', function (e) {
+			audioPlayer.setAttribute('src', $scope.trackList[++$scope.currentIndex].uri);
+			audioPlayer.play();
 		});
 	};
 
