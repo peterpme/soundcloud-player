@@ -28,6 +28,7 @@ Timed Challenge of `4 hours`
 
 ## Issues:
 - There are tracks that will not play, because of some sort of Soundcloud licensing.
+- For some reason, you can't query "deep house", but "hip hop", "house music", "punk rock" all seem to work..
 
 
 ## Improvements:
