@@ -27,8 +27,4 @@ body {
 
 a {
 	text-decoration: none;
-
-	&:hover {
-		color: lighten($purple, 20%);
-	}
 }

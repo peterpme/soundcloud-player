@@ -6,4 +6,18 @@ ul {
 li {
 	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 	margin: 0 0 4px 0;
+	position: relative;
+
+	&.active {
+
+		color: $light-purple;
+
+		&:before {
+			font-family: FontAwesome;
+			content: "\f028";
+
+			position: absolute;
+			left: -25px;
+		}
+	}
 }
