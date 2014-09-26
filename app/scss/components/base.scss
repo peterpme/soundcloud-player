@@ -14,5 +14,17 @@ body {
 	font-family: $font-family;
 	font-weight: 400;
 	background: $purple;
+}
+
+a,
+body {
 	color: $white;
+}
+
+a {
+	text-decoration: none;
+
+	&:hover {
+		color: lighten($purple, 20%);
+	}
 }
