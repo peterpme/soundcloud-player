@@ -2,32 +2,33 @@ input,
 button {
 	display: inline-block;
 	vertical-align: middle;
-
-	border: 1px solid darken($purple, 10%);
 	border-radius: $border-radius;
 }
 
 input {
-	padding: 15px;
-	margin: 0;
 	width: 100%;
-	box-shadow: 2px 2px 0 lighten($purple, 20%);
+	@extend %reset-margin;
+	padding: 15px;
 	@extend %text-uppercase;
+	border: 1px solid darken($purple, 10%);
+	box-shadow: 2px 2px 0 lighten($purple, 20%);
 }
 
 button {
 	position: absolute;
 	top: 0;
 	right: 0;
-	padding: 0 15px;
+
 	height: 100%;
-	cursor: pointer;
+	@extend %reset-margin;
+	padding: 0 15px;
 	background: transparent;
-	border: none;
+	border: 1px solid transparent;
+
+	cursor: pointer;
 	font-size: 22px;
 	color: $purple;
-	@extend %reset-margin-padding;
-	border: 1px solid transparent;
+
 	transition: background .1s ease-in-out, color .1s ease-in-out;
 
 	&:hover {
