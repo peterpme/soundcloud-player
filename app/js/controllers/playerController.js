@@ -1,5 +1,5 @@
 soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', function ($scope, $http, $log) {
-	$log.info('[playerController] Controller Loaded');
+	$log.info('[playerController] Ctrl Loaded');
 
 	$scope.clientId = '6aeca16577b6acfd3e76ab35ac241d81';
 	$scope.url = 'http://api.soundcloud.com/tracks.json?q=';
@@ -9,10 +9,11 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 
 	$scope.formSubmitted = false;
 	$scope.formSuccess = false;
+	$scope.status = null;
+
+	var audioPlayer = document.getElementsByTagName('audio')[0];
 
 	$scope.init = (function () {
-		$log.info('[player-controller] initialized');
-
 		SC.initialize({
 			client_id: $scope.clientId
 		});
@@ -20,7 +21,6 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 	})();
 
 	$scope.submitForm = function () {
-		$log.info('submitted Form');
 		$scope.formSubmitted = true;
 		$scope.encodedString = encodeURI($scope.searchQuery);
 
@@ -29,44 +29,57 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 
 	$scope.querySoundcloud = function () {
 
-		$log.info('queried');
-
-		$http.jsonp($scope.url + $scope.encodedString + '&client_id=' + $scope.clientId + '&callback=JSON_CALLBACK')
-		.success(function (data) {
-
-			$scope.formSuccess = true;
-			$scope.data = data;
-
-			$scope.data.forEach (function (track) {
-				var uri = track.uri + '/stream?client_id=' + $scope.clientId;
-
-				$scope.trackList.unshift({
-					title: track.title,
-					uri: uri
-				});
-			});
-
-			$scope.addTrackToPlayer();
-
-		})
-		.error (function (error) {
-			$log.debug('error', error);
-		})
-	};
-
-	$scope.addTrackToPlayer = function () {
-		var audioPlayer = document.getElementsByTagName('audio')[0];
-		audioPlayer.setAttribute('src', $scope.trackList[$scope.currentIndex].uri);
-		audioPlayer.play();
-
-		audioPlayer.addEventListener('error', function (e) {
-			audioPlayer.setAttribute('src', $scope.trackList[++$scope.currentIndex].uri);
-			audioPlayer.play();
+		$http.jsonp($scope.url + $scope.encodedString + '&client_id=' + $scope.clientId + '&callback=JSON_CALLBACK').
+		success($scope.processSoundcloudData).
+		error (function (data, status) {
+			$scope.data = data || "Request Failed";
+			$scope.status = status;
 		});
 	};
 
-	$scope.updateIndex = function () {
-		$scope.currentIndex ++;
-	}
+	$scope.processSoundcloudData = function(data) {
+		$scope.formSuccess = true;
+		$scope.data = data;
+
+		$scope.data.forEach (function (track) {
+			var uri = track.uri + '/stream?client_id=' + $scope.clientId;
+
+			$scope.trackList.unshift({
+				title: track.title,
+				uri: uri
+			});
+		});
+
+		$scope.addTrackToPlayer();
+	};
+
+	$scope.addTrackToPlayer = function () {
+		audioPlayer.setAttribute('src', $scope.trackList[$scope.currentIndex].uri);
+	};
+
+	audioPlayer.addEventListener('error', function (e) {
+		$scope.nextSong();
+		$scope.addTrackToPlayer();
+	})
+
+	audioPlayer.addEventListener('ended', function (e) {
+		$log.info('ended', e);
+		$scope.nextSong();
+		$scope.addTrackToPlayer();
+	});
+
+	$scope.onTrackEnd = function () {
+		audioPlayer.addEventListener('ended', function (e) {
+			$log.info('ended');
+		});
+	};
+
+	$scope.playSong = function () {
+		audioPlayer.play();
+	};
+
+	$scope.nextSong = function () {
+		++$scope.currentIndex;
+	};
 
 }]);
