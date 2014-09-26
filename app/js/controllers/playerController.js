@@ -1,5 +1,5 @@
 soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', function ($scope, $http, $log) {
-	$log.info('[playerController] Ctrl Loaded');
+	$log.info('[playerCtrl] Ctrl Loaded');
 
 	$scope.clientId = '6aeca16577b6acfd3e76ab35ac241d81';
 	$scope.url = 'http://api.soundcloud.com/tracks.json?q=';
@@ -57,7 +57,13 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 		audioPlayer.setAttribute('src', $scope.trackList[$scope.currentIndex].uri);
 	};
 
+	$scope.nextSong = function () {
+		++$scope.currentIndex;
+	};
+
 	audioPlayer.addEventListener('error', function (e) {
+		$log.error('[playerCtrl] Song Error');
+
 		$scope.nextSong();
 		$scope.addTrackToPlayer();
 	});
@@ -68,9 +74,5 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 		$scope.nextSong();
 		$scope.addTrackToPlayer();
 	});
-
-	$scope.nextSong = function () {
-		++$scope.currentIndex;
-	};
 
 }]);
