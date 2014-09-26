@@ -1,6 +1,5 @@
 node_modules
 app/bower_components
-app/css
 .DS_Store
 .sass-cache
 *sublime*
