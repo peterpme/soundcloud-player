@@ -9,12 +9,19 @@
 		</form>
 	</div>
 
+	<div class="sc-player__player">
+		<audio autoplay preload controls></audio>
+	</div>
+
 	<div class="sc-player__status">
 		<p ng-show="formSubmitted === true && formSuccess === false" ng-cloak>
-			Now Loading Your Playlist: <i class="fa fa-spin fa-circle-o-notch fa-3x"></i>
+			Now Loading Your Playlist:
+			<i class="fa fa-spin fa-circle-o-notch"></i>
 		</p>
 		<p ng-show="formError === true" ng-cloak>
-			Oops. Something Went Wrong. <i class="fa fa-exclamation-triangle fa-3x"></i>
+			Oops. Something Went Wrong.
+			<i class="fa fa-exclamation-triangle"></i><br>
+			{{status}}
 		</p>
 	</div>
 
