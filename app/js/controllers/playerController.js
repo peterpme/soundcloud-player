@@ -18,9 +18,15 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
   	* @return {undefined}
   	*/
 	$scope.init = (function () {
-		SC.initialize({
+
+		try {
+			SC.initialize({
 			client_id: $scope.clientId
 		});
+		} catch (e) {
+			$log.error(e);
+		}
+
 
 	})();
 
