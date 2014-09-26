@@ -24,12 +24,6 @@ I do not have much experience with Coffeescript, but I understand Trunk Club uti
 
 Timed Challenge of `4 hours`
 
-
-## Issues:
-- There are tracks that will not play, because of some sort of Soundcloud licensing. **If there's a track error, audio element will go to next song**
-- For some reason, you can't query "deep house", but "hip hop", "house music", "punk rock" all seem to work..
-
-
 ## Improvements:
 - Decoupling callback inside querySoundcloud and creating a separate function
 - Cleaning up code inside addTrackToPlayer / updateIndex functions
