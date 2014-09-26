@@ -29,7 +29,7 @@
 		<h2>Your Playlist:</h2>
 		<ul>
 			<li ng-class="{ active: $index === currentIndex }" ng-repeat="track in trackList">
-				{{track.title}}
+				<a href="#" ng-click="changeTrackToThisIndex($index)">{{track.title}}</a>
 			</li>
 		</ul>
 	</div>

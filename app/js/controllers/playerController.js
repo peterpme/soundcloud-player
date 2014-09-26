@@ -11,6 +11,7 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 	$scope.formSuccess = false;
 	$scope.status = null;
 
+
 	var audioPlayer = document.getElementsByTagName('audio')[0];
 
 	/**
@@ -21,14 +22,28 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 		$scope.clientId = '6aeca16577b6acfd3e76ab35ac241d81';
 
 		try {
-			SC.initialize({
+			window.SC.initialize({
 				client_id: $scope.clientId
 			});
 		} catch (e) {
 			$log.error(e);
 		}
 
+		$scope.searchQuery = queryString.parse(window.location.search).q
+		// if ($scope.searchQuery) {
+		// 	window.querySelectorAll('form[name=searchForm]').submit()
+		// }
 	})();
+
+	$scope.init2 = function () {
+		$scope.searchQuery = queryString.parse(window.location.search).q
+
+		if ($scope.searchQuery) {
+			$scope.submitForm();
+		}
+	};
+
+	$scope.init2();
 
 	/**
   	* Resets currentIndex, encodes search query and initiates request to soundcloud
@@ -92,6 +107,11 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
   	*/
 	$scope.addTrackToPlayer = function () {
 		audioPlayer.setAttribute('src', $scope.trackList[$scope.currentIndex].uri);
+	};
+
+	$scope.changeTrackToThisIndex = function (trackIndex) {
+		$scope.currentIndex = trackIndex;
+		$scope.addTrackToPlayer();
 	};
 
   	// Event Listener for Audio Song Error
