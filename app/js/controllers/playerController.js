@@ -21,6 +21,7 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 	})();
 
 	$scope.submitForm = function () {
+		$scope.currentIndex = 0;
 		$scope.formSubmitted = true;
 		$scope.encodedString = encodeURI($scope.searchQuery);
 
