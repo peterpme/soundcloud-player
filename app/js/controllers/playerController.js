@@ -22,7 +22,7 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 	$scope.submitForm = function () {
 		$log.info('submitted Form');
 		$scope.formSubmitted = true;
-		$scope.encodedString = encodeURI($scope.category);
+		$scope.encodedString = encodeURI($scope.searchQuery);
 
 		$scope.querySoundcloud();
 	};
@@ -48,7 +48,10 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 
 			$scope.addTrackToPlayer();
 
-		});
+		})
+		.error (function (error) {
+			$log.debug('error', error);
+		})
 	};
 
 	$scope.addTrackToPlayer = function () {
