@@ -31,7 +31,7 @@ Timed Challenge of `4 hours`
 
 
 ## Improvements:
-- Decopling callback inside querySoundcloud and creating a separate function
+- Decoupling callback inside querySoundcloud and creating a separate function
 - Cleaning up code inside addTrackToPlayer / updateIndex functions
 - Add complete commenting
 - Getting rid of JSONP, letting Node handle that request, and requesting data from the Node server instead
@@ -39,6 +39,14 @@ Timed Challenge of `4 hours`
 - Figuring out why "Deep House" is a broken query
 - Coffescript all the things
 - Better styling
+
+## Updates (outside of 4 hour limit)
+- Added commenting
+- Better styling added with cool purple theme
+- Better eventbus using audio element (changing songs on end, error)
+- Fixed `deep house` query by encoding URI
+- Decoupled success callback
+- Cleaned up several functions, better flow of code
 
 ## Future Thoughts
 - Adding authentication and creating playlists based on favorite tracks (and saving those playlists to your account)
