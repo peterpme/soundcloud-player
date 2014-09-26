@@ -53,21 +53,26 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 		$scope.addTrackToPlayer();
 	};
 
+	$scope.nextSong = function () {
+		++$scope.currentIndex;
+	};
+
 	$scope.addTrackToPlayer = function () {
+		$log.error('[playerCtrl] Song Forward');
 		audioPlayer.setAttribute('src', $scope.trackList[$scope.currentIndex].uri);
 	};
 
 	audioPlayer.addEventListener('error', function (e) {
 		$log.error('[playerCtrl] Song Error');
 
-		++$scope.currentIndex;
+		$scope.$apply($scope.nextSong());
 		$scope.addTrackToPlayer();
 	});
 
 	audioPlayer.addEventListener('ended', function (e) {
 		$log.info('[playerCtrl] Song Ended');
 
-		++$scope.currentIndex;
+		$scope.$apply($scope.nextSong());
 		$scope.addTrackToPlayer();
 	});
 
