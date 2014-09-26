@@ -1,15 +1,7 @@
 @import "components/vars.scss";
+@import "components/utilities.scss";
 @import "components/base.scss";
 @import "components/sc-player.scss";
-
-%text-uppercase {
-	text-transform: uppercase;
-}
-%reset-margin-padding {
-	margin: 0;
-	padding: 0;
-}
-
 
 
 h1 {
