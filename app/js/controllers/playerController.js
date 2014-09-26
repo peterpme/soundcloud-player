@@ -13,6 +13,10 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 
 	var audioPlayer = document.getElementsByTagName('audio')[0];
 
+	/**
+  	* Initializes Soundcloud
+  	* @return {undefined}
+  	*/
 	$scope.init = (function () {
 		SC.initialize({
 			client_id: $scope.clientId
@@ -20,6 +24,10 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 
 	})();
 
+	/**
+  	* Resets currentIndex, encodes search query and initiates request to soundcloud
+  	* @return {undefined}
+  	*/
 	$scope.submitForm = function () {
 		$scope.currentIndex = 0;
 		$scope.formSubmitted = true;
@@ -28,6 +36,10 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 		$scope.querySoundcloud();
 	};
 
+	/**
+  	* Queries Soundcloud
+  	* @return {undefined}
+  	*/
 	$scope.querySoundcloud = function () {
 
 		$http.jsonp($scope.url + $scope.encodedString + '&client_id=' + $scope.clientId + '&callback=JSON_CALLBACK').
@@ -38,6 +50,11 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 		});
 	};
 
+	/**
+  	* Unshifts requested Soundcloud data to $trackList array
+  	* @param {Object} data
+  	* @return {undefined}
+  	*/
 	$scope.processSoundcloudData = function(data) {
 		$scope.formSuccess = true;
 		$scope.data = data;
@@ -54,15 +71,27 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 		$scope.addTrackToPlayer();
 	};
 
+	/**
+  	* Increases currentIndex by 1
+  	* @return {undefined}
+  	*/
 	$scope.nextSong = function () {
 		++$scope.currentIndex;
 	};
 
+	/**
+  	* Updates Audio src attribute
+  	* @return {undefined}
+  	*/
 	$scope.addTrackToPlayer = function () {
 		$log.error('[playerCtrl] Song Forward');
 		audioPlayer.setAttribute('src', $scope.trackList[$scope.currentIndex].uri);
 	};
 
+	/**
+  	* Event Listener for Audio Song Error
+  	* @return {undefined}
+  	*/
 	audioPlayer.addEventListener('error', function (e) {
 		$log.error('[playerCtrl] Song Error');
 
@@ -70,6 +99,10 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 		$scope.addTrackToPlayer();
 	});
 
+	/**
+  	* Event Listener for Audio Song End
+  	* @return {undefined}
+  	*/
 	audioPlayer.addEventListener('ended', function (e) {
 		$log.info('[playerCtrl] Song Ended');
 
