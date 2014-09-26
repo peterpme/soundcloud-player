@@ -1,9 +1,12 @@
 input, h1 {
   text-transform: uppercase; }
 
-body, html, button, ul {
+body, html, ul {
   margin: 0;
   padding: 0; }
+
+input, button {
+  margin: 0; }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important; }
@@ -30,27 +33,25 @@ input,
 button {
   display: inline-block;
   vertical-align: middle;
-  border: 1px solid #100b1a;
   border-radius: 3px; }
 
 input {
-  padding: 15px;
-  margin: 0;
   width: 100%;
+  padding: 15px;
+  border: 1px solid #100b1a;
   box-shadow: 2px 2px 0 #503688; }
 
 button {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 0 15px;
   height: 100%;
-  cursor: pointer;
+  padding: 0 15px;
   background: transparent;
-  border: none;
+  border: 1px solid transparent;
+  cursor: pointer;
   font-size: 22px;
   color: #25193f;
-  border: 1px solid transparent;
   transition: background .1s ease-in-out, color .1s ease-in-out; }
   button:hover {
     background: #25193f;
@@ -60,28 +61,28 @@ ul {
   list-style: none; }
 
 li {
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  position: relative;
   margin: 0 0 4px 0;
-  position: relative; }
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; }
   li.active {
     color: #7f7fb1; }
     li.active:before {
-      font-family: FontAwesome;
-      content: "\f028";
       position: absolute;
-      left: -25px; }
+      left: -25px;
+      content: "\f028";
+      font-family: FontAwesome; }
 
 h1 {
-  text-align: center;
-  font-size: 23px;
   margin: 0 0 20px;
   padding: 0 0 20px;
-  border-bottom: 1px solid #7f7fb1; }
+  border-bottom: 1px solid #7f7fb1;
+  font-size: 23px;
+  text-align: center; }
 
 audio {
+  display: block;
   margin: 20px auto;
-  width: 100%;
-  display: block; }
+  width: 100%; }
 
 .sc-player__form {
   position: relative; }
