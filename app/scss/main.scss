@@ -1,49 +1,10 @@
 @import "components/vars.scss";
 @import "components/utilities.scss";
 @import "components/base.scss";
+@import "components/form.scss";
+@import "components/list.scss";
+@import "components/type.scss";
 @import "components/sc-player.scss";
-
-
-h1 {
-	text-align: center;
-	font-size: 23px;
-	margin: 0 0 20px;
-	padding: 0 0 20px;
-	border-bottom: 1px solid $light-purple;
-
-	@extend %text-uppercase;
-}
-
-input,
-button {
-	display: inline-block;
-	vertical-align: middle;
-}
-
-input {
-	border: 1px solid darken($purple, 20%);
-	border-radius: $border-radius;
-	padding: 15px;
-	@extend %text-uppercase;
-	width: 90%;
-	box-shadow: 2px 2px 0 lighten($purple, 20%);
-}
-
-button {
-	cursor: pointer;
-	background: transparent;
-	border: none;
-	border-radius: $border-radius;
-	font-size: 30px;
-	border: 1px solid darken($purple, 20%);
-	color: $white;
-	@extend %reset-margin-padding;
-}
-
-ul {
-	list-style: none;
-	@extend %reset-margin-padding;
-}
 
 .container {
 	width: 100%;
