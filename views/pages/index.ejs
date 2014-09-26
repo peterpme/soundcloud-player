@@ -3,17 +3,17 @@
 <div class="sc-player" ng-controller="playerController">
 	<h1>SEARCH & STREAM</h1>
 	<div class="sc-player__form">
-		<form name="searchForm" ng-submit="submitForm()" ng-cloak>
+		<form name="searchForm" ng-submit="submitForm()">
 			<input type="text" class="sc-player__input" placeholder="Search A Category" ng-model="searchQuery" ng-disabled="formSubmitted === true && formSuccess === false">
 			<button type="submit" class="sc-player__btn" ng-disabled="formSubmitted === true && formSuccess === false"><i class="fa fa-play"></i></button>
 		</form>
 	</div>
 
 	<div class="sc-player__status">
-		<p ng-show="formSubmitted === true && formSuccess === false">
+		<p ng-show="formSubmitted === true && formSuccess === false" ng-cloak>
 			Now Loading Your Playlist: <i class="fa fa-spin fa-circle-o-notch fa-3x"></i>
 		</p>
-		<p ng-show="formError === true">
+		<p ng-show="formError === true" ng-cloak>
 			Oops. Something Went Wrong. <i class="fa fa-exclamation-triangle fa-3x"></i>
 		</p>
 	</div>
