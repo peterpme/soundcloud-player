@@ -1,23 +1,30 @@
 <% include ../partials/head %>
+
 <div class="sc-player" ng-controller="playerController">
-	<h1>Search A Category, Stream Your Music</h1>
-	<audio preload></audio>
-	<form name="searchForm" ng-submit="submitForm()" ng-cloak>
-		<div clas="sc-player__search">
-			<input type="text" class="input" placeholder="Search A Category" ng-model="category" ng-disabled="formSubmitted === true && formSuccess === false">
-			<button type="submit" class="btn" ng-disabled="formSubmitted === true && formSuccess === false"><i class="fa fa-play-circle"></i></button>
+	<h1>SEARCH & STREAM</h1>
+	<div class="sc-player__form">
+		<form name="searchForm" ng-submit="submitForm()" ng-cloak>
+			<input type="text" class="input" placeholder="Search A Category" ng-model="searchQuery" ng-disabled="formSubmitted === true && formSuccess === false">
+			<button type="submit" class="btn" ng-disabled="formSubmitted === true && formSuccess === false"><i class="fa fa-play"></i></button>
+		</form>
+	</div>
 
-			<p ng-show="formSubmitted === true && formSuccess === false">
-				Loading: <i class="fa fa-spin fa-circle-o-notch fa-3x"></i>
-			</p>
+	<div class="sc-player__status">
+		<p ng-show="formSubmitted === true && formSuccess === false">
+			Now Loading Your Playlist: <i class="fa fa-spin fa-circle-o-notch fa-3x"></i>
+		</p>
+		<p ng-show="formError === true">
+			Oops. Something Went Wrong. <i class="fa fa-exclamation-triangle fa-3x"></i>
+		</p>
+	</div>
 
-			<div class="sc-player__results" ng-show="formSuccess" ng-cloak>
-				<h2>Your Playlist:</h2>
-				<ul class="list-unstyled">
-					<li ng-repeat="track in trackList"><a ng-href="{{track.uri}}">{{track.title}}</a></li>
-				</ul>
-			</div>
-		</div>
-	</form>
-</div>
+	<div class="sc-player__playlist" ng-show="formSuccess === true" ng-cloak>
+		<h2>Your Playlist:</h2>
+		<ul>
+			<li ng-repeat="track in trackList">
+				<a ng-href="{{track.uri}}">{{track.title}}</a>
+			</li>
+		</ul>
+	</div>
+
 <% include ../partials/foot %>
