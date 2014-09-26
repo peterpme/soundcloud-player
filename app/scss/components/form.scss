@@ -1,0 +1,25 @@
+input,
+button {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+input {
+	border: 1px solid darken($purple, 20%);
+	border-radius: $border-radius;
+	padding: 15px;
+	@extend %text-uppercase;
+	width: 90%;
+	box-shadow: 2px 2px 0 lighten($purple, 20%);
+}
+
+button {
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	border-radius: $border-radius;
+	font-size: 30px;
+	border: 1px solid darken($purple, 20%);
+	color: $white;
+	@extend %reset-margin-padding;
+}
