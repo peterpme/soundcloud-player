@@ -1,52 +1,60 @@
-$font-family: 'Montserrat', sans-serif;
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+@import "components/vars.scss";
+@import "components/base.scss";
+@import "components/sc-player.scss";
 
-body, html {
+%text-uppercase {
+	text-transform: uppercase;
+}
+%reset-margin-padding {
 	margin: 0;
 	padding: 0;
 }
-body {
-	font-family: $font-family;
-	font-weight: 400;
+
+
+
+h1 {
+	text-align: center;
+	font-size: 23px;
+	margin: 0 0 20px;
+	padding: 0 0 20px;
+	border-bottom: 1px solid $light-purple;
+
+	@extend %text-uppercase;
 }
 
 input,
 button {
 	display: inline-block;
 	vertical-align: middle;
-	height: 80px;
 }
 
 input {
-	border: 2px solid #ccc;
-	border-radius: 3px;
-	padding: 25px;
-	text-transform: uppercase;
-	width: 60%;
+	border: 1px solid darken($purple, 20%);
+	border-radius: $border-radius;
+	padding: 15px;
+	@extend %text-uppercase;
+	width: 90%;
+	box-shadow: 2px 2px 0 lighten($purple, 20%);
+}
+
+button {
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	border-radius: $border-radius;
+	font-size: 30px;
+	border: 1px solid darken($purple, 20%);
+	color: $white;
+	@extend %reset-margin-padding;
 }
 
 ul {
 	list-style: none;
-	padding: 0;
-	margin: 0;
+	@extend %reset-margin-padding;
 }
 
 .container {
 	width: 100%;
 	max-width: 700px;
 	margin: 40px auto;
-}
-
-button {
-	cursor: pointer;
-	background: #fff;
-	border: none;
-	border-radius: 3px;
-	font-size: 50px;
-	color: #ccc;
 }

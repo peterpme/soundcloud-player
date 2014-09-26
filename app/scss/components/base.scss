@@ -1,0 +1,18 @@
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body, html {
+	@extend %reset-margin-padding;
+}
+
+body {
+	font-family: $font-family;
+	font-weight: 400;
+	background: $purple;
+	color: $white;
+}
