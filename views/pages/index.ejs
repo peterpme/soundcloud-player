@@ -15,12 +15,12 @@
 
 	<div class="sc-player__status">
 		<p ng-show="formSubmitted === true && formSuccess === false" ng-cloak>
-			Now Loading Your Playlist:
 			<i class="fa fa-spin fa-circle-o-notch"></i>
+			Now Loading Your Playlist
 		</p>
 		<p ng-show="formError === true" ng-cloak>
-			Oops. Something Went Wrong.
 			<i class="fa fa-exclamation-triangle"></i><br>
+			Whoah. Something Went Wrong.
 			{{status}}
 		</p>
 	</div>
@@ -28,8 +28,8 @@
 	<div class="sc-player__playlist" ng-show="formSuccess === true" ng-cloak>
 		<h2>Your Playlist:</h2>
 		<ul>
-			<li ng-repeat="track in trackList">
-				<a ng-href="{{track.uri}}">{{track.title}}</a>
+			<li ng-class="{ active: $index === currentIndex }" ng-repeat="track in trackList">
+				{{track.title}}
 			</li>
 		</ul>
 	</div>
