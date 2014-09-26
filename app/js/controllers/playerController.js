@@ -84,7 +84,7 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
   	* @return {undefined}
   	*/
 	$scope.addTrackToPlayer = function () {
-		$log.error('[playerCtrl] Song Forward');
+		$log.info('[playerCtrl] Song Forward');
 		audioPlayer.setAttribute('src', $scope.trackList[$scope.currentIndex].uri);
 	};
 
