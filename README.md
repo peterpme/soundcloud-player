@@ -20,7 +20,7 @@ I will be utilizing the following:
 
 - Music will be controlled by a large centrally located play button. Very minimal theme. The potential to add control {back, foward} buttons may be a possibility as well
 
-I do not have much experience with Coffeescript, but I understand Trunk Club utilizes it for all of their projects, so I will challenge myself by writing this in Coffeescript as well.
+- I do not have much experience with Coffeescript, but I understand Trunk Club utilizes it for all of their projects, so I will challenge myself by writing this in Coffeescript as well.
 
 Timed Challenge of `4 hours`
 
@@ -41,6 +41,7 @@ Timed Challenge of `4 hours`
 - Fixed `deep house` query by encoding URI
 - Decoupled success callback
 - Cleaned up several functions, better flow of code
+- Coffeescript (untested)
 
 ## Future Thoughts
 - Adding authentication and creating playlists based on favorite tracks (and saving those playlists to your account)
