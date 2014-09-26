@@ -82,6 +82,7 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
   	* @return {undefined}
   	*/
 	$scope.nextSong = function () {
+		$log.info('[playerCtrl] Song Forward');
 		++$scope.currentIndex;
 	};
 
@@ -90,7 +91,6 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
   	* @return {undefined}
   	*/
 	$scope.addTrackToPlayer = function () {
-		$log.info('[playerCtrl] Song Forward');
 		audioPlayer.setAttribute('src', $scope.trackList[$scope.currentIndex].uri);
 	};
 
