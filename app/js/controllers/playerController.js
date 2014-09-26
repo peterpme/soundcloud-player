@@ -60,23 +60,14 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 	audioPlayer.addEventListener('error', function (e) {
 		$scope.nextSong();
 		$scope.addTrackToPlayer();
-	})
+	});
 
 	audioPlayer.addEventListener('ended', function (e) {
-		$log.info('ended', e);
+		$log.info('[playerCtrl] Song Ended');
+
 		$scope.nextSong();
 		$scope.addTrackToPlayer();
 	});
-
-	$scope.onTrackEnd = function () {
-		audioPlayer.addEventListener('ended', function (e) {
-			$log.info('ended');
-		});
-	};
-
-	$scope.playSong = function () {
-		audioPlayer.play();
-	};
 
 	$scope.nextSong = function () {
 		++$scope.currentIndex;
