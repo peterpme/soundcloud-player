@@ -3,8 +3,9 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 
 	$scope.clientId = '6aeca16577b6acfd3e76ab35ac241d81';
 	$scope.url = 'http://api.soundcloud.com/tracks.json?q=';
-	$scope.trackList = [];
+
 	$scope.data = {};
+	$scope.trackList = [];
 	$scope.currentIndex = 0;
 
 	$scope.formSubmitted = false;
@@ -21,12 +22,11 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 
 		try {
 			SC.initialize({
-			client_id: $scope.clientId
-		});
+				client_id: $scope.clientId
+			});
 		} catch (e) {
 			$log.error(e);
 		}
-
 
 	})();
 
@@ -57,7 +57,7 @@ soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', f
 	};
 
 	/**
-  	* Unshifts requested Soundcloud data to $trackList array
+  	* Unshifts requested Soundcloud data to $scope.trackList array
   	* @param {Object} data
   	* @return {undefined}
   	*/
