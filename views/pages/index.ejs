@@ -4,8 +4,8 @@
 	<h1>SEARCH & STREAM</h1>
 	<div class="sc-player__form">
 		<form name="searchForm" ng-submit="submitForm()" ng-cloak>
-			<input type="text" class="input" placeholder="Search A Category" ng-model="searchQuery" ng-disabled="formSubmitted === true && formSuccess === false">
-			<button type="submit" class="btn" ng-disabled="formSubmitted === true && formSuccess === false"><i class="fa fa-play"></i></button>
+			<input type="text" class="sc-player__input" placeholder="Search A Category" ng-model="searchQuery" ng-disabled="formSubmitted === true && formSuccess === false">
+			<button type="submit" class="sc-player__btn" ng-disabled="formSubmitted === true && formSuccess === false"><i class="fa fa-play"></i></button>
 		</form>
 	</div>
 
@@ -26,5 +26,6 @@
 			</li>
 		</ul>
 	</div>
+</div>
 
 <% include ../partials/foot %>
