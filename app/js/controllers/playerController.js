@@ -1,5 +1,5 @@
 soundcloudPlayer.ng.controller('playerController', ['$scope', '$http', '$log', function ($scope, $http, $log) {
-	$log.info('[playerCtrl] Ctrl Loaded');
+	$log.info('[playerCtrl] Loaded');
 
 	$scope.clientId = '6aeca16577b6acfd3e76ab35ac241d81';
 	$scope.url = 'http://api.soundcloud.com/tracks.json?q=';
